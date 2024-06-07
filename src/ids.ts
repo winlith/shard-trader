@@ -4,380 +4,380 @@ export const servers = [
         worlds: [
             {
                 id: 73,
-                name: 'Adamantoise'
+                name: 'Adamantoise',
             },
             {
                 id: 79,
-                name: 'Cactuar'
+                name: 'Cactuar',
             },
             {
                 id: 54,
-                name: 'Faerie'
+                name: 'Faerie',
             },
             {
                 id: 63,
-                name: 'Gilgamesh'
+                name: 'Gilgamesh',
             },
             {
                 id: 40,
-                name: 'Jenova'
+                name: 'Jenova',
             },
             {
                 id: 65,
-                name: 'Midgardsormr'
+                name: 'Midgardsormr',
             },
             {
                 id: 99,
-                name: 'Sargatanas'
+                name: 'Sargatanas',
             },
             {
                 id: 57,
-                name: 'Siren'
-            }
-        ]
+                name: 'Siren',
+            },
+        ],
     },
     {
         name: 'Crystal',
         worlds: [
             {
                 id: 91,
-                name: 'Balmung'
+                name: 'Balmung',
             },
             {
                 id: 34,
-                name: 'Brynhildr'
+                name: 'Brynhildr',
             },
             {
                 id: 74,
-                name: 'Coeurl'
+                name: 'Coeurl',
             },
             {
                 id: 62,
-                name: 'Diabolos'
+                name: 'Diabolos',
             },
             {
                 id: 81,
-                name: 'Goblin'
+                name: 'Goblin',
             },
             {
                 id: 75,
-                name: 'Malboro'
+                name: 'Malboro',
             },
             {
                 id: 37,
-                name: 'Mateus'
+                name: 'Mateus',
             },
             {
                 id: 41,
-                name: 'Zalera'
-            }
-        ]
+                name: 'Zalera',
+            },
+        ],
     },
     {
         name: 'Primal',
         worlds: [
             {
                 id: 78,
-                name: 'Behemoth'
+                name: 'Behemoth',
             },
             {
                 id: 93,
-                name: 'Excalibur'
+                name: 'Excalibur',
             },
             {
                 id: 53,
-                name: 'Exodus'
+                name: 'Exodus',
             },
             {
                 id: 35,
-                name: 'Famfrit'
+                name: 'Famfrit',
             },
             {
                 id: 95,
-                name: 'Hyperion'
+                name: 'Hyperion',
             },
             {
                 id: 55,
-                name: 'Lamia'
+                name: 'Lamia',
             },
             {
                 id: 64,
-                name: 'Leviathan'
+                name: 'Leviathan',
             },
             {
                 id: 77,
-                name: 'Ultros'
-            }
-        ]
+                name: 'Ultros',
+            },
+        ],
     },
     {
         name: 'Dynamis',
         worlds: [
             {
                 id: 406,
-                name: 'Halicarnassus'
+                name: 'Halicarnassus',
             },
             {
                 id: 407,
-                name: 'Maduin'
+                name: 'Maduin',
             },
             {
                 id: 404,
-                name: 'Marilith'
+                name: 'Marilith',
             },
             {
                 id: 405,
-                name: 'Seraph'
-            }
-        ]
+                name: 'Seraph',
+            },
+        ],
     },
     {
         name: 'Chaos',
         worlds: [
             {
                 id: 80,
-                name: 'Cerberus'
+                name: 'Cerberus',
             },
             {
                 id: 83,
-                name: 'Louisoix'
+                name: 'Louisoix',
             },
             {
                 id: 71,
-                name: 'Moogle'
+                name: 'Moogle',
             },
             {
                 id: 39,
-                name: 'Omega'
+                name: 'Omega',
             },
             {
                 id: 401,
-                name: 'Phantom'
+                name: 'Phantom',
             },
             {
                 id: 97,
-                name: 'Ragnarok'
+                name: 'Ragnarok',
             },
             {
                 id: 400,
-                name: 'Sagittarius'
+                name: 'Sagittarius',
             },
             {
                 id: 85,
-                name: 'Spriggan'
-            }
-        ]
+                name: 'Spriggan',
+            },
+        ],
     },
     {
         name: 'Light',
         worlds: [
             {
                 id: 402,
-                name: 'Alpha'
+                name: 'Alpha',
             },
             {
                 id: 36,
-                name: 'Lich'
+                name: 'Lich',
             },
             {
                 id: 66,
-                name: 'Odin'
+                name: 'Odin',
             },
             {
                 id: 56,
-                name: 'Phoenix'
+                name: 'Phoenix',
             },
             {
                 id: 403,
-                name: 'Raiden'
+                name: 'Raiden',
             },
             {
                 id: 67,
-                name: 'Shiva'
+                name: 'Shiva',
             },
             {
                 id: 33,
-                name: 'Twintania'
+                name: 'Twintania',
             },
             {
                 id: 42,
-                name: 'Zodiark'
-            }
-        ]
+                name: 'Zodiark',
+            },
+        ],
     },
     {
         name: 'Elemental',
         worlds: [
             {
                 id: 90,
-                name: 'Aegis'
+                name: 'Aegis',
             },
             {
                 id: 68,
-                name: 'Atomos'
+                name: 'Atomos',
             },
             {
                 id: 45,
-                name: 'Carbuncle'
+                name: 'Carbuncle',
             },
             {
                 id: 58,
-                name: 'Garuda'
+                name: 'Garuda',
             },
             {
                 id: 94,
-                name: 'Gungnir'
+                name: 'Gungnir',
             },
             {
                 id: 49,
-                name: 'Kujata'
+                name: 'Kujata',
             },
             {
                 id: 72,
-                name: 'Tonberry'
+                name: 'Tonberry',
             },
             {
                 id: 50,
-                name: 'Typhon'
-            }
-        ]
+                name: 'Typhon',
+            },
+        ],
     },
     {
         name: 'Gaia',
         worlds: [
             {
                 id: 43,
-                name: 'Alexander'
+                name: 'Alexander',
             },
             {
                 id: 69,
-                name: 'Bahamut'
+                name: 'Bahamut',
             },
             {
                 id: 92,
-                name: 'Durandal'
+                name: 'Durandal',
             },
             {
                 id: 46,
-                name: 'Fenrir'
+                name: 'Fenrir',
             },
             {
                 id: 59,
-                name: 'Ifrit'
+                name: 'Ifrit',
             },
             {
                 id: 98,
-                name: 'Ridill'
+                name: 'Ridill',
             },
             {
                 id: 76,
-                name: 'Tiamat'
+                name: 'Tiamat',
             },
             {
                 id: 51,
-                name: 'Ultima'
-            }
-        ]
+                name: 'Ultima',
+            },
+        ],
     },
     {
         name: 'Mana',
         worlds: [
             {
                 id: 44,
-                name: 'Anima'
+                name: 'Anima',
             },
             {
                 id: 23,
-                name: 'Asura'
+                name: 'Asura',
             },
             {
                 id: 70,
-                name: 'Chocobo'
+                name: 'Chocobo',
             },
             {
                 id: 47,
-                name: 'Hades'
+                name: 'Hades',
             },
             {
                 id: 48,
-                name: 'Ixion'
+                name: 'Ixion',
             },
             {
                 id: 96,
-                name: 'Masamune'
+                name: 'Masamune',
             },
             {
                 id: 28,
-                name: 'Pandaemonium'
+                name: 'Pandaemonium',
             },
             {
                 id: 61,
-                name: 'Titan'
-            }
-        ]
+                name: 'Titan',
+            },
+        ],
     },
     {
         name: 'Meteor',
         worlds: [
             {
                 id: 24,
-                name: 'Belias'
+                name: 'Belias',
             },
             {
                 id: 82,
-                name: 'Mandragora'
+                name: 'Mandragora',
             },
             {
                 id: 60,
-                name: 'Ramuh'
+                name: 'Ramuh',
             },
             {
                 id: 29,
-                name: 'Shinryu'
+                name: 'Shinryu',
             },
             {
                 id: 30,
-                name: 'Unicorn'
+                name: 'Unicorn',
             },
             {
                 id: 52,
-                name: 'Valefor'
+                name: 'Valefor',
             },
             {
                 id: 31,
-                name: 'Yojimbo'
+                name: 'Yojimbo',
             },
             {
                 id: 32,
-                name: 'Zeromus'
-            }
-        ]
+                name: 'Zeromus',
+            },
+        ],
     },
     {
         name: 'Materia',
         worlds: [
             {
                 id: 22,
-                name: 'Bismarck'
+                name: 'Bismarck',
             },
             {
                 id: 21,
-                name: 'Ravana'
+                name: 'Ravana',
             },
             {
                 id: 86,
-                name: 'Sephirot'
+                name: 'Sephirot',
             },
             {
                 id: 87,
-                name: 'Sophia'
+                name: 'Sophia',
             },
             {
                 id: 88,
-                name: 'Zurvan'
-            }
-        ]
-    }
+                name: 'Zurvan',
+            },
+        ],
+    },
 ];
 
 export const shards = [
@@ -386,47 +386,47 @@ export const shards = [
         name: 'Fire Shard',
         seed: {
             id: 15865,
-            name: 'Firelight Seed'
-        }
+            name: 'Firelight Seed',
+        },
     },
     {
         id: 3,
         name: 'Ice Shard',
         seed: {
             id: 15866,
-            name: 'Icelight Seed'
-        }
+            name: 'Icelight Seed',
+        },
     },
     {
         id: 4,
         name: 'Wind Shard',
         seed: {
             id: 15867,
-            name: 'Windlight Seed'
-        }
+            name: 'Windlight Seed',
+        },
     },
     {
         id: 5,
         name: 'Earth Shard',
         seed: {
             id: 15868,
-            name: 'Earthlight Seed'
-        }
+            name: 'Earthlight Seed',
+        },
     },
     {
         id: 6,
         name: 'Lightning Shard',
         seed: {
             id: 15869,
-            name: 'Levinlight Seed'
-        }
+            name: 'Levinlight Seed',
+        },
     },
     {
         id: 7,
         name: 'Water Shard',
         seed: {
             id: 15870,
-            name: 'Waterlight Seed'
-        }
-    }
+            name: 'Waterlight Seed',
+        },
+    },
 ];

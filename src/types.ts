@@ -1,3 +1,7 @@
-export type ShardPriceTable = {
-    
-}
+export type Settings = {
+    dc?: string;
+    worldId?: number;
+    plantCount?: number;
+};
+
+export type ShardPriceTable = {};
