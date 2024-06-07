@@ -11,14 +11,19 @@ import {
 } from '@mui/material';
 import { servers } from './ids';
 import { useEffect, useState } from 'react';
+import { Settings } from './types';
+import { settingsKey } from './App';
 
 const dcs = servers.map((s) => s.name);
 
-function WorldSettings() {
-    const [selectedDc, setSelectedDc] = useState(null as string | null);
-    const [selectedWorldId, setSelectedWorldId] = useState(
-        null as number | null
-    );
+export interface WorldSettingsProps {
+    settings: Settings;
+    setSettings: (settings: Settings) => void;
+}
+
+function WorldSettings(props: WorldSettingsProps) {
+    const [selectedDc, setSelectedDc] = useState('');
+    const [selectedWorldId, setSelectedWorldId] = useState('');
     const [currentDcWorldList, setCurrentDcWorldList] = useState(
         [] as { name: string; id: number }[]
     );
@@ -35,17 +40,32 @@ function WorldSettings() {
         }
     }, [selectedDc]);
 
-    const handleDcChange = (e: SelectChangeEvent<string | null>) =>
+    useEffect(() => {
+        if (props.settings.dc) setSelectedDc(props.settings.dc);
+        if (props.settings.worldId)
+            setSelectedWorldId(props.settings.worldId.toString());
+    }, [props]);
+
+    const handleDcChange = (e: SelectChangeEvent<string>) => {
         setSelectedDc(e.target.value);
-    const handleWorldChange = (e: SelectChangeEvent<number | null>) => {
-        let id = -1;
-        if (typeof e.target.value == 'number' && !isNaN(e.target.value)) {
-            id = e.target.value;
-        } else {
-            if (e.target.value !== null)
-                id = Number.parseInt(e.target.value as string);
+        setSelectedWorldId('');
+    };
+
+    const handleWorldChange = (e: SelectChangeEvent<string>) => {
+        setSelectedWorldId(e.target.value);
+    };
+
+    const handleCheckMarket = () => {
+        // actually check market
+        // ...
+        // set and save settings
+        if (selectedDc && selectedWorldId) {
+            const newSettings = structuredClone(props.settings);
+            newSettings.dc = selectedDc;
+            newSettings.worldId = Number.parseInt(selectedWorldId);
+            props.setSettings(newSettings);
+            localStorage.setItem(settingsKey, JSON.stringify(newSettings));
         }
-        if (id !== -1) setSelectedWorldId(id);
     };
 
     return (
@@ -91,19 +111,22 @@ function WorldSettings() {
                         onChange={handleWorldChange}
                     >
                         {currentDcWorldList.map((world) => (
-                            <MenuItem value={world.id}>{world.name}</MenuItem>
+                            <MenuItem value={world.id.toString()}>
+                                {world.name}
+                            </MenuItem>
                         ))}
                     </Select>
                 </FormControl>
                 <FormControl>
-                    <Button variant="outlined" sx={{ alignSelf: 'center' }}>
+                    <Button
+                        variant="outlined"
+                        sx={{ alignSelf: 'center' }}
+                        onClick={handleCheckMarket}
+                    >
                         Check market
                     </Button>
                 </FormControl>
             </Paper>
-            {/* <Paper sx={{ padding: '25px' }}>
-                <Typography>{selectedDc}</Typography>
-            </Paper> */}
         </Box>
     );
 }

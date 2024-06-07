@@ -2,25 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Settings } from './types';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import {
-    AppBar,
-    Box,
-    Button,
-    IconButton,
-    Toolbar,
-    Typography,
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import WorldSettings from './WorldSettings';
 
-export const SettingsContext = React.createContext<{
-    settings: Settings;
-    setSettings: React.Dispatch<React.SetStateAction<Settings>>;
-} | null>(null);
-
-const settingsKey = 'shardTraderSettings';
-
-const defaultTheme = createTheme();
+export const settingsKey = 'shardTraderSettings';
 
 const darkTheme = createTheme({
     palette: {
@@ -41,10 +26,6 @@ function App() {
         }
     }, []);
 
-    useEffect(() => {
-        localStorage.setItem(settingsKey, JSON.stringify(settings));
-    }, [settings]);
-
     return (
         <ThemeProvider theme={darkTheme}>
             <CssBaseline />
@@ -61,14 +42,10 @@ function App() {
                     </Toolbar>
                 </AppBar>
             </Box>
-            <SettingsContext.Provider
-                value={{ settings: settings, setSettings: setSettings }}
-            >
-                <Box>
-                <WorldSettings></WorldSettings>
+            <Box>
+                <WorldSettings settings={settings} setSettings={setSettings}></WorldSettings>
                 {/* <MainMenu></MainMenu> */}
-                </Box>
-            </SettingsContext.Provider>
+            </Box>
         </ThemeProvider>
     );
 }
