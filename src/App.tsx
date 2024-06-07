@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
 import { Settings } from './types';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import {
+    AppBar,
+    Box,
+    Button,
+    IconButton,
+    Toolbar,
+    Typography,
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import WorldSettings from './WorldSettings';
 
 export const SettingsContext = React.createContext<{
@@ -9,6 +19,14 @@ export const SettingsContext = React.createContext<{
 } | null>(null);
 
 const settingsKey = 'shardTraderSettings';
+
+const defaultTheme = createTheme();
+
+const darkTheme = createTheme({
+    palette: {
+        mode: 'dark',
+    },
+});
 
 function App() {
     const [settings, setSettings] = useState<Settings>({});
@@ -28,19 +46,30 @@ function App() {
     }, [settings]);
 
     return (
-        <div>
-            <div></div>
-            <header>
-                <h1 className="header-title">Shard Trader</h1>
-                <h6 className="subheader">Become the Heisenberg of Eorzea</h6>
-            </header>
+        <ThemeProvider theme={darkTheme}>
+            <CssBaseline />
+            <Box sx={{ flexGrow: 1 }}>
+                <AppBar position="static">
+                    <Toolbar>
+                        <Typography
+                            variant="h6"
+                            component="div"
+                            sx={{ flexGrow: 1 }}
+                        >
+                            Shard Trader
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
+            </Box>
             <SettingsContext.Provider
                 value={{ settings: settings, setSettings: setSettings }}
             >
+                <Box>
                 <WorldSettings></WorldSettings>
                 {/* <MainMenu></MainMenu> */}
+                </Box>
             </SettingsContext.Provider>
-        </div>
+        </ThemeProvider>
     );
 }
 
