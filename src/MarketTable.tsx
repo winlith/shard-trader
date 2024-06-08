@@ -17,10 +17,10 @@ export interface MarketTableProps {
 function MarketTable(props: MarketTableProps) {
     return (
         <TableContainer component={Box}>
-            <Table size="small" aria-label="a dense table">
+            <Table size="small">
                 <TableHead>
                     <TableRow>
-                        {props.worldName!=='' && (<TableCell>World</TableCell>)}
+                        {props.worldName !== '' && <TableCell>World</TableCell>}
                         <TableCell>Retainer</TableCell>
                         <TableCell>Price</TableCell>
                         <TableCell>Qty</TableCell>
@@ -40,7 +40,9 @@ function MarketTable(props: MarketTableProps) {
                                     },
                                 }}
                             >
-                                {props.worldName!=='' && (<TableCell>{listing.worldName}</TableCell>)}
+                                {props.worldName !== '' && (
+                                    <TableCell>{listing.worldName}</TableCell>
+                                )}
                                 <TableCell>{listing.retainerName}</TableCell>
                                 <TableCell>{listing.pricePerUnit}</TableCell>
                                 <TableCell>{listing.quantity}</TableCell>

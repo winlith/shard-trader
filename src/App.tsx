@@ -24,9 +24,7 @@ function App() {
     const [seedMarket, setSeedMarket] = useState<ApiMarketResponse | null>(
         null
     );
-    const [soilMarket, setSoilMarket] = useState<ApiItem | null>(
-        null
-    );
+    const [soilMarket, setSoilMarket] = useState<ApiItem | null>(null);
 
     useEffect(() => {
         const localSettings = localStorage.getItem(settingsKey);

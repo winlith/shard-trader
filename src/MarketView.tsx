@@ -43,7 +43,7 @@ function MarketView(props: MarketViewProps) {
                             <Typography
                                 sx={{ textAlign: 'center', margin: '5px' }}
                             >
-                                {getItemName(Number.parseInt(key))}
+                                {getItemName(parseInt(key))}
                             </Typography>
                             <MarketTable
                                 worldName={''}
@@ -86,7 +86,7 @@ function MarketView(props: MarketViewProps) {
                             <Typography
                                 sx={{ textAlign: 'center', margin: '5px' }}
                             >
-                                {getItemName(Number.parseInt(key))}
+                                {getItemName(parseInt(key))}
                             </Typography>
                             <MarketTable
                                 worldName={props.seedMarket!.worldName!}

@@ -12,7 +12,11 @@ function ErrorView() {
             }}
         >
             <ErrorIcon color="error" sx={{ fontSize: 512 }} />
-            <Typography variant="h2" sx={{textAlign: 'center'}}>Getting data from Universalis failed.<br />Try again later.</Typography>
+            <Typography variant="h2" sx={{ textAlign: 'center' }}>
+                Getting data from Universalis failed.
+                <br />
+                Try again later.
+            </Typography>
         </Box>
     );
 }

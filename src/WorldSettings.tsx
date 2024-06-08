@@ -55,16 +55,15 @@ function WorldSettings(props: CommonProps) {
 
     const handleCheckMarket = async () => {
         if (selectedDc && selectedWorldId) {
-            const parsedWorldId = Number.parseInt(selectedWorldId);
+            const parsedWorldId = parseInt(selectedWorldId);
             setLoading(true);
             const shardMarket = await getShardMarket(parsedWorldId);
             const seedMarket = await getSeedMarket(selectedDc);
             const soilMarket = await getSoilMarket(selectedDc);
             setLoading(false);
-            if(shardMarket.error || seedMarket.error || soilMarket.error) {
+            if (shardMarket.error || seedMarket.error || soilMarket.error) {
                 props.setError(true);
-            }
-            else {
+            } else {
                 props.setShardMarket(shardMarket.response!);
                 props.setSeedMarket(seedMarket.response!);
                 props.setSoilMarket(soilMarket.response!);
@@ -98,7 +97,7 @@ function WorldSettings(props: CommonProps) {
                     alignItems: 'center',
                 }}
             >
-                <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
+                <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                     <InputLabel id="dc-select-label">DC</InputLabel>
                     <Select
                         labelId="dc-select-label"
@@ -112,7 +111,7 @@ function WorldSettings(props: CommonProps) {
                         ))}
                     </Select>
                 </FormControl>
-                <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
+                <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                     <InputLabel id="world-select-label">World</InputLabel>
                     <Select
                         labelId="world-select-label"
@@ -135,7 +134,11 @@ function WorldSettings(props: CommonProps) {
                             variant="outlined"
                             sx={{ alignSelf: 'center' }}
                             onClick={handleCheckMarket}
-                            disabled={loading || selectedDc === '' || selectedWorldId === ''}
+                            disabled={
+                                loading ||
+                                selectedDc === '' ||
+                                selectedWorldId === ''
+                            }
                         >
                             Check market
                         </Button>

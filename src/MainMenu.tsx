@@ -1,26 +1,16 @@
 import { useEffect, useState } from 'react';
 import { CommonProps } from './types';
-import {
-    Box,
-    Paper,
-    ToggleButton,
-    ToggleButtonGroup,
-    Typography,
-} from '@mui/material';
+import { Box, Paper, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import MarketView from './MarketView';
 import PlaceholderView from './PlaceholderView';
 import ErrorView from './ErrorView';
+import CalcView from './CalcView';
 
 function MainMenu(props: CommonProps) {
-    const [selectedDc, setSelectedDc] = useState('');
-    const [selectedWorldId, setSelectedWorldId] = useState('');
     const [selectedTab, setSelectedTab] = useState('market');
     const [marketLoaded, setMarketLoaded] = useState(false);
 
     useEffect(() => {
-        if (props.settings.dc) setSelectedDc(props.settings.dc);
-        if (props.settings.worldId)
-            setSelectedWorldId(props.settings.worldId.toString());
         if (props.shardMarket && props.seedMarket && props.soilMarket)
             setMarketLoaded(true);
         else setMarketLoaded(false);
@@ -95,9 +85,20 @@ function MainMenu(props: CommonProps) {
                                         />
                                     )}
                                     {selectedTab === 'calc' && (
-                                        <Typography>
-                                            not implemented yet lmao
-                                        </Typography>
+                                        <CalcView
+                                            error={props.error}
+                                            setError={props.setError}
+                                            settings={props.settings}
+                                            setSettings={props.setSettings}
+                                            shardMarket={props.shardMarket}
+                                            setShardMarket={
+                                                props.setShardMarket
+                                            }
+                                            seedMarket={props.seedMarket}
+                                            setSeedMarket={props.setSeedMarket}
+                                            soilMarket={props.soilMarket}
+                                            setSoilMarket={props.setSoilMarket}
+                                        />
                                     )}
                                 </>
                             ) : (
