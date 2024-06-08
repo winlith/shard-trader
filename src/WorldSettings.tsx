@@ -1,32 +1,30 @@
 import {
     Box,
     Button,
+    CircularProgress,
     FormControl,
     InputLabel,
     MenuItem,
     Paper,
     Select,
     SelectChangeEvent,
-    Typography,
 } from '@mui/material';
+import RefreshIcon from '@mui/icons-material/Refresh';
 import { servers } from './ids';
 import { useEffect, useState } from 'react';
-import { Settings } from './types';
+import { CommonProps } from './types';
 import { settingsKey } from './App';
+import { getSeedMarket, getShardMarket, getSoilMarket } from './apiServices';
 
 const dcs = servers.map((s) => s.name);
 
-export interface WorldSettingsProps {
-    settings: Settings;
-    setSettings: (settings: Settings) => void;
-}
-
-function WorldSettings(props: WorldSettingsProps) {
+function WorldSettings(props: CommonProps) {
     const [selectedDc, setSelectedDc] = useState('');
     const [selectedWorldId, setSelectedWorldId] = useState('');
     const [currentDcWorldList, setCurrentDcWorldList] = useState(
         [] as { name: string; id: number }[]
     );
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (selectedDc) {
@@ -55,14 +53,27 @@ function WorldSettings(props: WorldSettingsProps) {
         setSelectedWorldId(e.target.value);
     };
 
-    const handleCheckMarket = () => {
-        // actually check market
-        // ...
-        // set and save settings
+    const handleCheckMarket = async () => {
         if (selectedDc && selectedWorldId) {
+            const parsedWorldId = Number.parseInt(selectedWorldId);
+            setLoading(true);
+            const shardMarket = await getShardMarket(parsedWorldId);
+            const seedMarket = await getSeedMarket(selectedDc);
+            const soilMarket = await getSoilMarket(selectedDc);
+            setLoading(false);
+            if(shardMarket.error || seedMarket.error || soilMarket.error) {
+                props.setError(true);
+            }
+            else {
+                props.setShardMarket(shardMarket.response!);
+                props.setSeedMarket(seedMarket.response!);
+                props.setSoilMarket(soilMarket.response!);
+                props.setError(false);
+            }
+
             const newSettings = structuredClone(props.settings);
             newSettings.dc = selectedDc;
-            newSettings.worldId = Number.parseInt(selectedWorldId);
+            newSettings.worldId = parsedWorldId;
             props.setSettings(newSettings);
             localStorage.setItem(settingsKey, JSON.stringify(newSettings));
         }
@@ -118,13 +129,29 @@ function WorldSettings(props: WorldSettingsProps) {
                     </Select>
                 </FormControl>
                 <FormControl>
-                    <Button
-                        variant="outlined"
-                        sx={{ alignSelf: 'center' }}
-                        onClick={handleCheckMarket}
-                    >
-                        Check market
-                    </Button>
+                    <Box sx={{ position: 'relative' }}>
+                        <Button
+                            startIcon={<RefreshIcon />}
+                            variant="outlined"
+                            sx={{ alignSelf: 'center' }}
+                            onClick={handleCheckMarket}
+                            disabled={loading || selectedDc === '' || selectedWorldId === ''}
+                        >
+                            Check market
+                        </Button>
+                        {loading && (
+                            <CircularProgress
+                                size={24}
+                                sx={{
+                                    position: 'absolute',
+                                    top: '50%',
+                                    left: '50%',
+                                    marginTop: '-12px',
+                                    marginLeft: '-12px',
+                                }}
+                            />
+                        )}
+                    </Box>
                 </FormControl>
             </Paper>
         </Box>

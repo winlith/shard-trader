@@ -430,3 +430,15 @@ export const shards = [
         },
     },
 ];
+
+export const soil = { name: 'Grade 3 Shroud Topsoil', id: 7763 };
+
+export function getWorldName(id: number): string | undefined {
+    return servers.map(dc => dc.worlds).reduce((a, c) => a.concat(c)).find(w => w.id === id)?.name;
+}
+
+export function getItemName(id: number): string | undefined {
+    if(id === soil.id) return soil.name;
+    else if(id<10) return shards.find(s => s.id === id)?.name;
+    else return shards.map(s => s.seed).find(s => s.id === id)?.name;
+}

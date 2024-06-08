@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Settings } from './types';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { AppBar, Box, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material';
 import WorldSettings from './WorldSettings';
+import MainMenu from './MainMenu';
+import { ApiItem, ApiMarketResponse } from './apiTypes';
 
 export const settingsKey = 'shardTraderSettings';
 
@@ -14,7 +16,17 @@ const darkTheme = createTheme({
 });
 
 function App() {
+    const [error, setError] = useState(false);
     const [settings, setSettings] = useState<Settings>({});
+    const [shardMarket, setShardMarket] = useState<ApiMarketResponse | null>(
+        null
+    );
+    const [seedMarket, setSeedMarket] = useState<ApiMarketResponse | null>(
+        null
+    );
+    const [soilMarket, setSoilMarket] = useState<ApiItem | null>(
+        null
+    );
 
     useEffect(() => {
         const localSettings = localStorage.getItem(settingsKey);
@@ -32,19 +44,62 @@ function App() {
             <Box sx={{ flexGrow: 1 }}>
                 <AppBar position="static">
                     <Toolbar>
-                        <Typography
-                            variant="h6"
-                            component="div"
-                            sx={{ flexGrow: 1 }}
+                        <Box
+                            sx={{
+                                flexGrow: 1,
+                                display: 'flex',
+                                flexDirection: 'column',
+                            }}
                         >
-                            Shard Trader
+                            <Typography
+                                variant="h6"
+                                component="div"
+                                sx={{ flexGrow: 1 }}
+                            >
+                                Shard Trader
+                            </Typography>
+                            <Typography variant="caption">
+                                Become the Heisenberg of Eorzea
+                            </Typography>
+                        </Box>
+                        <Typography>
+                            Powered by{' '}
+                            <Button
+                                variant="text"
+                                href="https://universalis.app"
+                                target="_blank"
+                            >
+                                Universalis
+                            </Button>
                         </Typography>
                     </Toolbar>
                 </AppBar>
             </Box>
             <Box>
-                <WorldSettings settings={settings} setSettings={setSettings}></WorldSettings>
-                {/* <MainMenu></MainMenu> */}
+                <WorldSettings
+                    error={error}
+                    setError={setError}
+                    settings={settings}
+                    setSettings={setSettings}
+                    shardMarket={shardMarket}
+                    setShardMarket={setShardMarket}
+                    seedMarket={seedMarket}
+                    setSeedMarket={setSeedMarket}
+                    soilMarket={soilMarket}
+                    setSoilMarket={setSoilMarket}
+                ></WorldSettings>
+                <MainMenu
+                    error={error}
+                    setError={setError}
+                    settings={settings}
+                    setSettings={setSettings}
+                    shardMarket={shardMarket}
+                    setShardMarket={setShardMarket}
+                    seedMarket={seedMarket}
+                    setSeedMarket={setSeedMarket}
+                    soilMarket={soilMarket}
+                    setSoilMarket={setSoilMarket}
+                ></MainMenu>
             </Box>
         </ThemeProvider>
     );
