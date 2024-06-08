@@ -1,12 +1,15 @@
 {
   "files": {
-    "main.js": "/shard-trader/static/js/main.3d268528.js",
+    "main.css": "/shard-trader/static/css/main.062950a8.css",
+    "main.js": "/shard-trader/static/js/main.e89db394.js",
     "static/js/453.0f7bac91.chunk.js": "/shard-trader/static/js/453.0f7bac91.chunk.js",
     "index.html": "/shard-trader/index.html",
-    "main.3d268528.js.map": "/shard-trader/static/js/main.3d268528.js.map",
+    "main.062950a8.css.map": "/shard-trader/static/css/main.062950a8.css.map",
+    "main.e89db394.js.map": "/shard-trader/static/js/main.e89db394.js.map",
     "453.0f7bac91.chunk.js.map": "/shard-trader/static/js/453.0f7bac91.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.3d268528.js"
+    "static/css/main.062950a8.css",
+    "static/js/main.e89db394.js"
   ]
 }
