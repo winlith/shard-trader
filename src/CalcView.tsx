@@ -148,7 +148,7 @@ function CalcView(props: CommonProps) {
                         variant="h6"
                         sx={{ margin: '5px', textAlign: 'center' }}
                     >
-                        Best profitable shard
+                        Most profitable shard
                     </Typography>
                     <CalcResult calculation={bestCalculation!} />
                     <Box sx={{ height: '15px' }} />

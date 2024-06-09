@@ -433,6 +433,16 @@ export const shards = [
 
 export const soil = { name: 'Grade 3 Shroud Topsoil', id: 7763 };
 
+export const cityIcons: { [key: string]: string } = {
+    'Limsa Lominsa': 'https://xivapi.com/i/060000/060881.png',
+    Gridania: 'https://xivapi.com/i/060000/060882.png',
+    "Ul'dah": 'https://xivapi.com/i/060000/060883.png',
+    Ishgard: 'https://xivapi.com/i/060000/060884.png',
+    Kugane: 'https://xivapi.com/i/060000/060885.png',
+    Crystarium: 'https://xivapi.com/i/060000/060886.png',
+    'Old Sharlayan': 'https://xivapi.com/i/060000/060887.png',
+};
+
 export function getWorldName(id: number): string | undefined {
     return servers
         .map((dc) => dc.worlds)

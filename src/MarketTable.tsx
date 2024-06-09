@@ -11,7 +11,7 @@ import { ApiListing } from './apiTypes';
 
 export interface MarketTableProps {
     listings: ApiListing[];
-    worldName: string;
+    displayWorldName: boolean;
 }
 
 function MarketTable(props: MarketTableProps) {
@@ -20,7 +20,7 @@ function MarketTable(props: MarketTableProps) {
             <Table size="small">
                 <TableHead>
                     <TableRow>
-                        {props.worldName !== '' && <TableCell>World</TableCell>}
+                        {props.displayWorldName && <TableCell>World</TableCell>}
                         <TableCell>Retainer</TableCell>
                         <TableCell>Price</TableCell>
                         <TableCell>Qty</TableCell>
@@ -40,7 +40,7 @@ function MarketTable(props: MarketTableProps) {
                                     },
                                 }}
                             >
-                                {props.worldName !== '' && (
+                                {props.displayWorldName && (
                                     <TableCell>{listing.worldName}</TableCell>
                                 )}
                                 <TableCell>{listing.retainerName}</TableCell>

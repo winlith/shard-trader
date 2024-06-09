@@ -26,9 +26,28 @@ function CalcResult(props: CalcResultProps) {
                 alignItems: 'center',
             }}
         >
-            <Typography sx={{ textAlign: 'center', mt: '5px' }}>
-                {getItemName(props.calculation.shardId)}
-            </Typography>
+            <Box
+                sx={{
+                    mt: '10px',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+            >
+                <img
+                    alt="logo"
+                    src={`https://universalis-ffxiv.github.io/universalis-assets/icon2x/${props.calculation.shardId}.png`}
+                    style={{
+                        width: '32px',
+                        height: '32px',
+                        marginRight: '5px',
+                    }}
+                ></img>
+                <Typography>
+                    {getItemName(props.calculation.shardId)}
+                </Typography>
+            </Box>
             <TableContainer component={Box}>
                 <Table size="small">
                     <TableBody

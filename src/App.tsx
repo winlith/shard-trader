@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material';
 import WorldSettings from './WorldSettings';
 import MainMenu from './MainMenu';
-import { ApiItem, ApiMarketResponse } from './apiTypes';
+import { ApiItem, ApiMarketResponse, ApiTaxRates } from './apiTypes';
 
 export const settingsKey = 'shardTraderSettings';
 
@@ -25,6 +25,7 @@ function App() {
         null
     );
     const [soilMarket, setSoilMarket] = useState<ApiItem | null>(null);
+    const [taxRates, setTaxRates] = useState<ApiTaxRates | null>(null);
 
     useEffect(() => {
         const localSettings = localStorage.getItem(settingsKey);
@@ -42,6 +43,15 @@ function App() {
             <Box sx={{ flexGrow: 1 }}>
                 <AppBar position="static">
                     <Toolbar>
+                        <img
+                            alt="logo"
+                            src="https://universalis-ffxiv.github.io/universalis-assets/icon2x/7.png"
+                            style={{
+                                width: '48px',
+                                height: '48px',
+                                marginRight: '25px',
+                            }}
+                        ></img>
                         <Box
                             sx={{
                                 flexGrow: 1,
@@ -85,6 +95,7 @@ function App() {
                     setSeedMarket={setSeedMarket}
                     soilMarket={soilMarket}
                     setSoilMarket={setSoilMarket}
+                    setTaxRates={setTaxRates}
                 ></WorldSettings>
                 <MainMenu
                     error={error}
@@ -97,6 +108,7 @@ function App() {
                     setSeedMarket={setSeedMarket}
                     soilMarket={soilMarket}
                     setSoilMarket={setSoilMarket}
+                    taxRates={taxRates}
                 ></MainMenu>
             </Box>
         </ThemeProvider>

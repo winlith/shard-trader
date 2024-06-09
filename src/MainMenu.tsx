@@ -5,8 +5,14 @@ import MarketView from './MarketView';
 import PlaceholderView from './PlaceholderView';
 import ErrorView from './ErrorView';
 import CalcView from './CalcView';
+import { ApiTaxRates } from './apiTypes';
+import TaxView from './TaxView';
 
-function MainMenu(props: CommonProps) {
+export interface MainMenuProps extends CommonProps {
+    taxRates: ApiTaxRates | null;
+}
+
+function MainMenu(props: MainMenuProps) {
     const [selectedTab, setSelectedTab] = useState('market');
     const [marketLoaded, setMarketLoaded] = useState(false);
 
@@ -71,6 +77,12 @@ function MainMenu(props: CommonProps) {
                                             Market
                                         </ToggleButton>
                                         <ToggleButton
+                                            value="tax"
+                                            aria-label="centered"
+                                        >
+                                            Tax rates
+                                        </ToggleButton>
+                                        <ToggleButton
                                             value="calc"
                                             aria-label="left aligned"
                                         >
@@ -82,6 +94,14 @@ function MainMenu(props: CommonProps) {
                                             shardMarket={props.shardMarket}
                                             seedMarket={props.seedMarket}
                                             soilMarket={props.soilMarket}
+                                        />
+                                    )}
+                                    {selectedTab === 'tax' && (
+                                        <TaxView
+                                            taxRates={props.taxRates}
+                                            selectedWorldId={
+                                                props.settings.worldId!
+                                            }
                                         />
                                     )}
                                     {selectedTab === 'calc' && (

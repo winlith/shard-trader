@@ -14,11 +14,21 @@ import { servers } from './ids';
 import { useEffect, useState } from 'react';
 import { CommonProps } from './types';
 import { settingsKey } from './App';
-import { getSeedMarket, getShardMarket, getSoilMarket } from './apiServices';
+import {
+    getSeedMarket,
+    getShardMarket,
+    getSoilMarket,
+    getTaxRates,
+} from './apiServices';
+import { ApiTaxRates } from './apiTypes';
 
 const dcs = servers.map((s) => s.name);
 
-function WorldSettings(props: CommonProps) {
+export interface WorldSettingsProps extends CommonProps {
+    setTaxRates: (taxRates: ApiTaxRates) => void;
+}
+
+function WorldSettings(props: WorldSettingsProps) {
     const [selectedDc, setSelectedDc] = useState('');
     const [selectedWorldId, setSelectedWorldId] = useState('');
     const [currentDcWorldList, setCurrentDcWorldList] = useState(
@@ -60,6 +70,7 @@ function WorldSettings(props: CommonProps) {
             const shardMarket = await getShardMarket(parsedWorldId);
             const seedMarket = await getSeedMarket(selectedDc);
             const soilMarket = await getSoilMarket(selectedDc);
+            const taxRates = await getTaxRates(parseInt(selectedWorldId));
             setLoading(false);
             if (shardMarket.error || seedMarket.error || soilMarket.error) {
                 props.setError(true);
@@ -67,6 +78,7 @@ function WorldSettings(props: CommonProps) {
                 props.setShardMarket(shardMarket.response!);
                 props.setSeedMarket(seedMarket.response!);
                 props.setSoilMarket(soilMarket.response!);
+                props.setTaxRates(taxRates.response!);
                 props.setError(false);
             }
 

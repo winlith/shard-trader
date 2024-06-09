@@ -1,4 +1,4 @@
-import { ApiItem, ApiMarketResponse } from './apiTypes';
+import { ApiItem, ApiMarketResponse, ApiTaxRates } from './apiTypes';
 import { shards, soil } from './ids';
 import { ApiResult } from './types';
 
@@ -35,4 +35,11 @@ export async function getSeedMarket(
 export async function getSoilMarket(dc: string): Promise<ApiResult<ApiItem>> {
     const path = `${dc}/${soil.id}`;
     return await universalisRequest<ApiItem>(path);
+}
+
+export async function getTaxRates(
+    worldId: number
+): Promise<ApiResult<ApiTaxRates>> {
+    const path = `tax-rates?world=${worldId.toString()}`;
+    return await universalisRequest<ApiTaxRates>(path);
 }

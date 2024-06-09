@@ -40,13 +40,31 @@ function MarketView(props: MarketViewProps) {
                                 alignContent: 'center',
                             }}
                         >
-                            <Typography
-                                sx={{ textAlign: 'center', margin: '5px' }}
+                            <Box
+                                sx={{
+                                    padding: '10px',
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                }}
                             >
-                                {getItemName(parseInt(key))}
-                            </Typography>
+                                <img
+                                    alt="logo"
+                                    src={`https://universalis-ffxiv.github.io/universalis-assets/icon2x/${key}.png`}
+                                    style={{
+                                        width: '32px',
+                                        height: '32px',
+                                    }}
+                                ></img>
+                                <Typography
+                                    sx={{ textAlign: 'center', margin: '5px' }}
+                                >
+                                    {getItemName(parseInt(key))}
+                                </Typography>
+                            </Box>
                             <MarketTable
-                                worldName={''}
+                                displayWorldName={false}
                                 listings={
                                     props.shardMarket!.items[key].listings
                                 }
@@ -83,13 +101,31 @@ function MarketView(props: MarketViewProps) {
                                 alignContent: 'center',
                             }}
                         >
-                            <Typography
-                                sx={{ textAlign: 'center', margin: '5px' }}
+                            <Box
+                                sx={{
+                                    padding: '10px',
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                }}
                             >
-                                {getItemName(parseInt(key))}
-                            </Typography>
+                                <img
+                                    alt="logo"
+                                    src={`https://universalis-ffxiv.github.io/universalis-assets/icon2x/${key}.png`}
+                                    style={{
+                                        width: '32px',
+                                        height: '32px',
+                                    }}
+                                ></img>
+                                <Typography
+                                    sx={{ textAlign: 'center', margin: '5px' }}
+                                >
+                                    {getItemName(parseInt(key))}
+                                </Typography>
+                            </Box>
                             <MarketTable
-                                worldName={props.seedMarket!.worldName!}
+                                displayWorldName={true}
                                 listings={props.seedMarket!.items[key].listings}
                             />
                         </Paper>
@@ -98,12 +134,30 @@ function MarketView(props: MarketViewProps) {
             </Box>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                 <Box sx={{ height: '15px' }} />
-                <Typography
-                    variant="h6"
-                    sx={{ margin: '5px', textAlign: 'center' }}
+                <Box
+                    sx={{
+                        padding: '10px',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
                 >
-                    {soil.name} on {props.soilMarket?.dcName}
-                </Typography>
+                    <img
+                        alt="logo"
+                        src={`https://universalis-ffxiv.github.io/universalis-assets/icon2x/${soil.id}.png`}
+                        style={{
+                            width: '32px',
+                            height: '32px',
+                        }}
+                    ></img>
+                    <Typography
+                        variant="h6"
+                        sx={{ margin: '5px', textAlign: 'center' }}
+                    >
+                        {soil.name} on {props.soilMarket?.dcName}
+                    </Typography>
+                </Box>
                 <Box
                     sx={{
                         display: 'flex',
@@ -132,7 +186,7 @@ function MarketView(props: MarketViewProps) {
                                     {world.name}
                                 </Typography>
                                 <MarketTable
-                                    worldName={''}
+                                    displayWorldName={false}
                                     listings={props.soilMarket!.listings.filter(
                                         (l) => l.worldID === world.id
                                     )}

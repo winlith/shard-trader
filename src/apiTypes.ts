@@ -71,3 +71,7 @@ export type ApiRecentHistory = {
     buyerName: string;
     total: number;
 };
+
+export type ApiTaxRates = {
+    [key: string]: number;
+};
