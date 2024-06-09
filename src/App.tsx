@@ -49,7 +49,7 @@ function App() {
                             style={{
                                 width: '48px',
                                 height: '48px',
-                                marginRight: '25px',
+                                marginRight: '15px',
                             }}
                         ></img>
                         <Box
@@ -78,6 +78,14 @@ function App() {
                                 target="_blank"
                             >
                                 Universalis
+                            </Button>
+                            <Button
+                                variant="text"
+                                href="https://github.com/winlith/shard-trader"
+                                target="_blank"
+                                sx={{ ml: '15px' }}
+                            >
+                                Check source on Github
                             </Button>
                         </Typography>
                     </Toolbar>
